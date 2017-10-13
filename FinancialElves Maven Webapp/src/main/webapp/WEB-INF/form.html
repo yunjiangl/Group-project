@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>交易记录</title>
+    <script src="resources/plugins/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+</head>
+
+<body>
+    <div id="bigDiv">
+        <div id="headDiv">
+            <div id="logoDiv">
+            </div>
+            个人理财精灵
+            <div id="logoutDiv">
+                退出
+            </div>
+            <div id="helpDiv">
+                帮助
+            </div>
+        </div>
+        <div id="menuDiv">
+            <div id="formMenu" class="menuDiv">
+                新增账单
+            </div>
+            <div id="queryMenu" class="menuDiv">
+                账单查询
+            </div>
+            <div id="analizeMenu" class="menuDiv">
+                收支统计
+            </div>
+            <div id="imgDiv">
+            </div>
+            <div id="usernameDiv">
+                当前登录用户
+            </div>
+        </div>
+        <div id="contentDiv">
+            <div id="titleDiv">
+                新增&编辑账单信息
+            </div>
+            <form action="" method="post" accept-charset="utf-8">
+                账单类型：
+                <input type="text" class="userMessage" name="bill_pay_type" placeholder="请简单描述交易事件！">
+                <br>
+                <div class="warningDiv">
+                </div>账单金额：
+                <input type="password" class="userMessage" name="bill_money" placeholder="请输入交易金额！">
+                <br>
+                <div class="warningDiv">
+                </div>
+                <hr>
+                <div id="buttonDiv">
+                    <button id="button1" type="submit">保存</button>
+                    <button id="button2" type="rest">重置</button>
+                    <button id="button3" type="button">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="resources/js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>收支统计</title>
+    <script src="resources/plugins/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+</head>
+
+<body>
+    <div id="bigDiv">
+        <div id="headDiv">
+            <div id="logoDiv">
+            </div>
+            个人理财精灵
+            <div id="logoutDiv">
+                退出
+            </div>
+            <div id="helpDiv">
+                帮助
+            </div>
+        </div>
+        <div id="menuDiv">
+            <div id="formMenu" class="menuDiv">
+                交易记录
+            </div>
+            <div id="queryMenu" class="menuDiv">
+                账单查询
+            </div>
+            <div id="analizeMenu" class="menuDiv">
+                收支统计
+            </div>
+            <div id="imgDiv">
+            </div>
+            <div id="usernameDiv">
+                当前登录用户
+            </div>
+        </div>
+        <div id="contentDiv">
+            <div id="pieDiv">
+                <canvas id="pie"></canvas>
+            </div>
+            <div id="lineDiv1">
+                <canvas id="lineIncome"></canvas>
+            </div>
+            <div id="lineDiv2">
+                <canvas id="linePay"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="resources/js/common.js"></script>
+</body>
+
+</html>

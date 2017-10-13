@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>账单查询</title>
+    <script src="resources/plugins/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+</head>
+
+<body>
+    <div id="bigDiv">
+        <div id="headDiv">
+            <div id="logoDiv">
+            </div>
+            个人理财精灵
+            <div id="logoutDiv">
+                退出
+            </div>
+            <div id="helpDiv">
+                帮助
+            </div>
+        </div>
+        <div id="menuDiv">
+            <div id="formMenu" class="menuDiv">
+                交易记录
+            </div>
+            <div id="queryMenu" class="menuDiv">
+                账单查询
+            </div>
+            <div id="analizeMenu" class="menuDiv">
+                收支统计
+            </div>
+            <div id="imgDiv">
+            </div>
+            <div id="usernameDiv">
+                当前登录用户
+            </div>
+        </div>
+        <div id="contentDiv">
+            <select id="payIncome_Select" name="">
+                <option value="收入查询">收入查询</option>
+                <option value="支出查询">支出查询</option>
+            </select>
+            <input id="searchInput" type="text" name="" placeholder="如：XX经费">
+            <button id="searchButton" type="">搜索</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th id="payIncome_show">
+                            <input type="checkbox" name="">收入类型</th>
+                        <th>交易金额</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="" value="">Java1班团建经费</td>
+                        <td>1000</td>
+                        <td>
+                            <div class="compileDiv">
+                                编辑
+                            </div>
+                            <div class="deleteDiv">
+                                删除
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="" value="">徐老师生日聚餐经费</td>
+                        <td>2000</td>
+                        <td>
+                            <div class="compileDiv">
+                                编辑
+                            </div>
+                            <div class="deleteDiv">
+                                删除
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="" value="">学生补助经费</td>
+                        <td>3000</td>
+                        <td>
+                            <div class="compileDiv">
+                                编辑
+                            </div>
+                            <div class="deleteDiv">
+                                删除
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="pagingDiv">
+                共pageTotal页，recordTotal条记录
+                <div class="pagingButton">
+                    末页>>
+                </div>
+                <div class="pagingButton">
+                    下一页>
+                </div>
+                <div id="pagingButton1" class="pagingButton">
+                    2
+                </div>
+                <div id="pagingButton2" class="pagingButton">
+                    1
+                </div>
+                <div class="pagingButton">
+                    <上一页
+                </div>
+                <div class="pagingButton">
+                    <<首页
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="resources/js/common.js"></script>
+</body>
+
+</html>
