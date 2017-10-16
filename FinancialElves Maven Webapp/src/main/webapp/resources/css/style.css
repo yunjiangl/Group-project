@@ -31,6 +31,7 @@
 #logoutDiv:hover,
 #helpDiv:hover {
     font-size: 0.8em;
+    text-decoration: underline;
 }
 
 #logoDiv {
@@ -94,16 +95,20 @@
 
 
 
-/*表单页面*/
+/*表单新增页面*/
+
+#id_form{
+    visibility: hidden;
+}
 
 #payIncome_Select,#searchInput,#searchButton{
     margin-top: 5px;
 }
+
 #titleDiv {
     text-align: center;
     font-weight: bold;
     margin-top: 5px;
-    margin-bottom: 20px;
 }
 
 form {
@@ -139,7 +144,11 @@ button {
 
 
 
-/*查询页面*/
+/*表格查询页面*/
+
+#id_list{
+    display: none;
+}
 
 #payIncome_Select,#searchInput,#searchButton{
     margin-top: 5px;
@@ -157,6 +166,7 @@ thead {
 
 td,
 th {
+    height:30px;
     width: auto;
     text-align: left;
     border: solid #999 1px;
@@ -208,10 +218,9 @@ td div {
 
 
 
-/*图表页面*/
+/*图表分析页面*/
 #pieDiv{
     margin:0 auto;
-    background:aqua;
     width:500px;
     height:250px;
 }
@@ -224,7 +233,6 @@ td div {
 #lineDiv1{
     float:left;
     margin-top: 10px;
-    background:aqua;
     width:500px;
     height:250px;
 }
@@ -237,7 +245,6 @@ td div {
 #lineDiv2{
     float:right;
     margin-top: 10px;
-    background:aqua;
     width:500px;
     height:250px;
 }

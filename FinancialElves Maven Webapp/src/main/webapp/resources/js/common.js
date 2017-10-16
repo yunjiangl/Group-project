@@ -7,6 +7,7 @@ $(function() {
     var $warningDiv1 = $(".warningDiv:eq(1)");
     // 提交表单
     $("form").submit(function() {
+        alert();
         return true;
     });
 
@@ -55,81 +56,98 @@ $(function() {
         $("#imgDiv").css("margin-top", $("#menuDiv").height() - 226);
     });
 
-    // 收支分析图:饼图
-    var ctx = $("#pie").get(0).getContext("2d");
+    try {
+        // 收支分析图:饼图
+        var ctx = $("#pie").get(0).getContext("2d");
 
-    var data = {
-        datasets: [{
-            data: [20, 15],
-            backgroundColor: [
-                'red',
-                'blue'
-            ]
-        }],
-        labels: [
-            '收入',
-            '支出'
-        ],
+        var data = {
+            datasets: [{
+                data: [20, 15],
+                backgroundColor: [
+                    'red',
+                    'blue'
+                ]
+            }],
+            labels: [
+                '收入',
+                '支出'
+            ],
+        };
+
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: {
+                title: {
+                    display: true,
+                    text: '收支比例分析图'
+                }
+            }
+        });
+
+        // 收入曲线图
+        var ctx1 = $("#lineIncome").get(0).getContext("2d");
+
+        var data1 = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "金额",
+                fillColor: "rgba(220,220,220,0.5)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                data: [65, 59, 90, 81, 56, 55, 40]
+            }]
+        }
+
+        var stackedLine = new Chart(ctx1, {
+            type: 'line',
+            data: data1,
+            options: {
+                scales: {
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: '收入金额曲线图'
+                }
+            }
+        });
+
+
+        //支出曲线图
+        var ctx2 = $("#linePay").get(0).getContext("2d");
+
+        var data2 = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "金额",
+                fillColor: "rgba(220,220,220,0.5)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                data: [20, 90, 93, 35, 40, 55, 82]
+            }]
+        }
+
+        var stackedLine = new Chart(ctx2, {
+            type: 'line',
+            data: data2,
+            options: {
+                scales: {
+                    yAxes: [{
+                        stacked: true
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: '支出金额曲线图'
+                }
+            }
+        });
+    } catch (e) {
+        if (e instanceof TypeError) {};
     };
-
-    var myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: data,
-        options: null
-    });
-
-
-
-    // 收入曲线图
-    var ctx1 = $("#lineIncome").get(0).getContext("2d");
-
-    var data1 = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            data: [65, 59, 90, 81, 56, 55, 40]
-        }]
-    }
-
-    var stackedLine = new Chart(ctx1, {
-        type: 'line',
-        data: data1,
-        options: {
-            scales: {
-                yAxes: [{
-                    stacked: true
-                }]
-            }
-        }
-    });
-
-
-    //支出曲线图
-    var ctx2 = $("#linePay").get(0).getContext("2d");
-
-    var data2 = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            data: [20, 90, 93, 35, 40, 55, 82]
-        }]
-    }
-
-    var stackedLine = new Chart(ctx2, {
-        type: 'line',
-        data: data2,
-        options: {
-            scales: {
-                yAxes: [{
-                    stacked: true
-                }]
-            }
-        }
-    });
 });

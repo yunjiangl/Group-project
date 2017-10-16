@@ -23,7 +23,7 @@
         </div>
         <div id="menuDiv">
             <div id="formMenu" class="menuDiv">
-                交易记录
+                新增账单
             </div>
             <div id="queryMenu" class="menuDiv">
                 账单查询
@@ -47,17 +47,19 @@
             <table>
                 <thead>
                     <tr>
-                        <th id="payIncome_show">
-                            <input type="checkbox" name="">收入类型</th>
+                        <th id="payIncome_show">收入类型</th>
                         <th>交易金额</th>
+                        <th>初始时间</th>
+                        <th>最新时间</th>
                         <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-                            <input type="checkbox" name="" value="">Java1班团建经费</td>
+                        <td>Java1班团建经费<input id="id_list" type="text" name="bill_id" value="1"></td>
                         <td>1000</td>
+                        <td>2017-10-16</td>
+                        <td>2017-10-16</td>
                         <td>
                             <div class="compileDiv">
                                 编辑
@@ -68,9 +70,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input type="checkbox" name="" value="">徐老师生日聚餐经费</td>
+                        <td>徐老师生日聚餐经费</td>
                         <td>2000</td>
+                        <td>2017-10-16</td>
+                        <td>2017-10-16</td>
                         <td>
                             <div class="compileDiv">
                                 编辑
@@ -81,9 +84,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input type="checkbox" name="" value="">学生补助经费</td>
+                        <td>学生补助经费</td>
                         <td>3000</td>
+                        <td>2017-10-16</td>
+                        <td>2017-10-16</td>
                         <td>
                             <div class="compileDiv">
                                 编辑
@@ -96,7 +100,6 @@
                 </tbody>
             </table>
             <div id="pagingDiv">
-                共pageTotal页，recordTotal条记录
                 <div class="pagingButton">
                     末页>>
                 </div>
@@ -110,15 +113,13 @@
                     1
                 </div>
                 <div class="pagingButton">
-                    <上一页
-                </div>
-                <div class="pagingButton">
-                    <<首页
+                    <上一页 </div>
+                        <div class="pagingButton">
+                            <<首页 </div>
+                        </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <script src="resources/js/common.js"></script>
+            <script src="resources/js/common.js"></script>
 </body>
 
 </html>
