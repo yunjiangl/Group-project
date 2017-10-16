@@ -27,6 +27,16 @@ public interface AccountAction {
 	void doLogin();
 
 	/**
+	 * 退出登录，将当前session中的用户信息清除
+	 */
+	void loginOut();
+
+	/**
+	 * 使用response对象将当前登录用户的用户名发送的前端
+	 */
+	void breakUsername();
+
+	/**
 	 * 检查用户名是否重复
 	 * 
 	 * 

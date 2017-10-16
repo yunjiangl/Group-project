@@ -3,6 +3,8 @@ package online.shixun.dao;
 import java.util.Date;
 import java.util.List;
 
+import online.shixun.model.Bill;
+
 /**
  * @ClassName: BillDao
  *
@@ -12,7 +14,7 @@ import java.util.List;
  *
  * @date 2017年10月12日 下午9:28:36
  */
-public interface BillDao<Bill> {
+public interface BillDao {
 
 	/**
 	 * 新增一条账单信息
@@ -67,11 +69,11 @@ public interface BillDao<Bill> {
 	 * 
 	 * @param account_id
 	 *            用户id
-	 * @param incomeOrExpenditure_type
+	 * @param bill_pay_type
 	 *            账单的消费（收入）类型
 	 * @return 查询到的总数
 	 */
-	Long fuzzyQueryBillPages(Long account_id, String incomeOrExpenditure_type);
+	Long fuzzyQueryBillPages(Long account_id, String bill_pay_type);
 
 	/**
 	 * 模糊查询账单的某页数据（每页10条数据）
@@ -84,7 +86,7 @@ public interface BillDao<Bill> {
 	 *            所要查询的页面
 	 * @return 账单实体类集合
 	 */
-	List<Bill> fuzzyQueryBillInfo(Long account_id, String incomeOrExpenditure_type, Long page);
+	List<Bill> fuzzyQueryBillInfo(Long account_id, String bill_pay_type, Long page);
 
 	/**
 	 * 查询账单创建日期（过滤重复）
@@ -100,15 +102,27 @@ public interface BillDao<Bill> {
 	List<Date> queryBillCreatDate(Long account_id);
 
 	/**
-	 * 分组查询收入账单金额
+	 * 分组查询账单金额
 	 * 
 	 * <p>
-	 * 以账单创建时间为条件，分组查询与用户关联的收入账单金额总数
+	 * 以账单创建时间为条件，分组查询与用户关联的账单金额总数
 	 * </p>
 	 * 
 	 * @param account_id
 	 *            用户id
 	 * @return 分组之后的收入金额集合
 	 */
-	List<Double> queryIncomeMoney(Long account_id);
+	List<Double> queryBillMoney(Long account_id);
+
+	/**
+	 * 查询账单金额
+	 * 
+	 * @param account_id
+	 *            当前登录用户id
+	 *            <p>
+	 *            以支出和收入分组查询账单总金额
+	 *            </p>
+	 * @return 查询结果
+	 */
+	List<Double> queryBillAllMoney(Long account_id);
 }

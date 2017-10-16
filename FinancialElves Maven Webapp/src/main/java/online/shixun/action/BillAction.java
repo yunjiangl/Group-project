@@ -14,17 +14,17 @@ public interface BillAction {
 	/**
 	 * 新增一条用户账单
 	 */
-	void addAccountIncomeInfo();
+	void addAccountBillInfo();
 
 	/**
 	 * 删除一条账单信息
 	 */
-	void deleteAccountIncomeInfo();
+	void deleteAccountBillInfo();
 
 	/**
 	 * 更新一条账单信息
 	 */
-	void updateAccountIncomeInfo();
+	void updateAccountBillInfo();
 
 	/**
 	 * 查询用户关联的账单分页之后的页数
@@ -33,7 +33,7 @@ public interface BillAction {
 	 * 使用response对象向前端页面发送查询到的结果
 	 * </p>
 	 */
-	void queryAccountIncomePages();
+	void queryAccountBillPages();
 
 	/**
 	 * 查询用户关联的某页的账单数据
@@ -42,7 +42,7 @@ public interface BillAction {
 	 * 根据前端提供的所要查询的页码进行查询，返回查询的结果（使用response对象）
 	 * </p>
 	 */
-	void queryAccountIncomeInfo();
+	void queryAccountBillInfo();
 
 	/**
 	 * 模糊查询的总页数
@@ -51,7 +51,7 @@ public interface BillAction {
 	 * 接收前端提供的账单类型，返回查询的总页数（使用response对象）
 	 * </p>
 	 */
-	void fuzzyQueryIncomePages();
+	void fuzzyQueryBillPages();
 
 	/**
 	 * 模糊查询某页账单数据
@@ -60,7 +60,7 @@ public interface BillAction {
 	 * 根据前端提供的所要查询的页码进行查询，返回查询的结果（使用response对象）
 	 * </p>
 	 */
-	void fuzzyQueryIncomeInfo();
+	void fuzzyQueryBillInfo();
 
 	/**
 	 * 查询账单的创建时间
@@ -69,15 +69,24 @@ public interface BillAction {
 	 * 使用response返回结果
 	 * </p>
 	 */
-	void queryIncomeCreateDate();
+	void queryBillCreateDate();
 
 	/**
 	 * 查询账单的金额
 	 * 
 	 * <p>
-	 * 以账单创建时间分组查询账单金额
+	 * 以账单创建时间分组查询账单金额，使用response返回结果
 	 * </p>
 	 */
-	void queryIncomeMoney();
+	void queryBillMoney();
+
+	/**
+	 * 查询账单的金额
+	 * 
+	 * <p>
+	 * 以支出和收入分组查询账单金额，使用response返回结果
+	 * </p>
+	 */
+	void queryBillAllMoney();
 
 }

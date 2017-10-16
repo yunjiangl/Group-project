@@ -62,10 +62,7 @@ public class Account {
 	private boolean account_isdelete; // 是否删除标记
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "account")
-	private Set<Expenditure> Expenditures;
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "account")
-	private Set<Income> incomes;
+	private Set<Bill> bill;
 
 	public Long getAccoutn_id() {
 		return accoutn_id;
@@ -155,25 +152,17 @@ public class Account {
 		this.account_isdelete = account_isdelete;
 	}
 
-	public Set<Expenditure> getExpenditures() {
-		return Expenditures;
+	public Set<Bill> getBill() {
+		return bill;
 	}
 
-	public void setExpenditures(Set<Expenditure> expenditures) {
-		Expenditures = expenditures;
-	}
-
-	public Set<Income> getIncomes() {
-		return incomes;
-	}
-
-	public void setIncomes(Set<Income> incomes) {
-		this.incomes = incomes;
+	public void setBill(Set<Bill> bill) {
+		this.bill = bill;
 	}
 
 	public Account(String account_username, String account_password, int account_loginCount, String account_email,
 			String account_gender, String account_career, String account_hobbies, Date account_caertedate,
-			Date account_modifydate, boolean account_isdelete, Set<Expenditure> expenditures, Set<Income> incomes) {
+			Date account_modifydate, boolean account_isdelete, Set<Bill> bill) {
 		super();
 		this.account_username = account_username;
 		this.account_password = account_password;
@@ -185,8 +174,7 @@ public class Account {
 		this.account_caertedate = account_caertedate;
 		this.account_modifydate = account_modifydate;
 		this.account_isdelete = account_isdelete;
-		Expenditures = expenditures;
-		this.incomes = incomes;
+		this.bill = bill;
 	}
 
 	public Account() {

@@ -1,6 +1,6 @@
 package online.shixun.service;
 
-import online.shixun.model.Expenditure;
+import online.shixun.model.Bill;
 
 /**
  * @ClassName: BillService
@@ -11,7 +11,7 @@ import online.shixun.model.Expenditure;
  *
  * @date 2017年10月12日 下午9:08:15
  */
-public interface BillService<Bill> {
+public interface BillService {
 
 	/**
 	 * 新增一条支出账单信息
@@ -87,24 +87,24 @@ public interface BillService<Bill> {
 	 * @param account_id
 	 *            当前登陆账户的id
 	 * 
-	 * @param incomeOrExpenditure_type
+	 * @param bill_pay_type
 	 *            所要模糊查询的条件（账单的消费（收入）类型）
 	 * @return 查询到的总页数
 	 */
-	Long fuzzyQueryBillPages(Long account_id, String incomeOrExpenditure_type);
+	Long fuzzyQueryBillPages(Long account_id, String bill_pay_type);
 
 	/**
 	 * 查询模糊查询账单的消费（收入）类型结果的某页数据
 	 * 
 	 * @param account_id
 	 *            当前登陆账户的id
-	 * @param incomeOrExpenditure_type
+	 * @param bill_pay_type
 	 *            所要模糊查询的条件（账单的消费（收入）类型）
 	 * @param page
 	 *            所要查询的的页码
 	 * @return 所查询到的当页数据的json格式字符串
 	 */
-	String fuzzyQueryBillInfo(Long account_id, String incomeOrExpenditure_type, Long page);
+	String fuzzyQueryBillInfo(Long account_id, String bill_pay_type, Long page);
 
 	/**
 	 * 查询账单金额
@@ -127,5 +127,18 @@ public interface BillService<Bill> {
 	 * @return 查询到的数据的json格式字符串
 	 */
 	String queryBillCreateDate(Long account_id);
+
+	/**
+	 * 查询账单金额
+	 * 
+	 * @param account_id
+	 *            当前登录用户id
+	 *            <p>
+	 *            以支出和收入分组查询账单总金额
+	 *            </p>
+	 * 
+	 * @return json格式字符串
+	 */
+	String queryBillAllMoney(Long account_id);
 
 }
