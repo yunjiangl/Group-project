@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script src="resources/plugins/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+</head>
+
+<body>
+    <div id="rigisterHeader">
+        <div id="logoDiv">
+        </div>
+        个人理财精灵-注册账号
+    </div>
+    <div id="registerContent">
+        <div id="registerBackground">
+        </div>
+        <form id="register_form" action="" method="get" accept-charset="utf-8">
+            <div class="registerDiv">
+                <div class="promptMessage">
+                    用户名:
+                </div>
+                <input class="inputMessage">
+                </input>
+                <div class="verifyDiv">
+                </div>
+            </div>
+            <div class="registerDiv">
+                <div class="promptMessage">
+                    登录密码:
+                </div>
+                <input type="password" class="inputMessage">
+                </input>
+                <div class="verifyDiv">
+                </div>
+            </div>
+            <div class="registerDiv">
+                <div class="promptMessage">
+                    重复密码:
+                </div>
+                <input type="password" class="inputMessage">
+                </input>
+                <div class="verifyDiv">
+                </div>
+            </div>
+            <div class="registerDiv">
+                <div class="promptMessage">
+                    电子邮箱:
+                </div>
+                <input type="email" class="inputMessage">
+                </input>
+                <div class="verifyDiv">
+                </div>
+            </div>
+            <div class="registerDiv">
+                <div class="promptMessage">
+                    性别:
+                </div>
+                <div id="sexDiv" class="inputMessage">
+                    <input type="radio" id="account_gender" name="account_gender"> 男
+                    </input>
+                    <input type="radio" id="account_gender" name="account_gender"> 女
+                    </input>
+                </div>
+                <div class="verifyDiv">
+                </div>
+            </div>
+            <div class="registerDiv">
+                <div class="promptMessage">
+                    职业:
+                </div>
+                <select id="account_career" name="account_career">
+                    <option value="">学生</option>
+                    <option value="">老师</option>
+                    <option value="">白领</option>
+                    <option value="">老板</option>
+                </select>
+                <div class="verifyDiv">
+                </div>
+            </div>
+            <div id="interestDiv" class="registerDiv">
+                <div class="promptMessage">
+                    爱好:
+                </div>
+                <select id="account_hobbies" name="" multiple="multiple" size="4">
+                    <option value="">唱歌</option>
+                    <option value="">读书</option>
+                    <option value="">游泳</option>
+                    <option value="">写代码</option>
+                    <option value="">打游戏</option>
+                </select>
+                <div class="verifyDiv">
+                </div>
+            </div>
+            <button id="registerButton" type="submit">注册</button>
+        </form>
+    </div>
+    <script src="resources/js/common.js"></script>
+</body>
+
+</html>
