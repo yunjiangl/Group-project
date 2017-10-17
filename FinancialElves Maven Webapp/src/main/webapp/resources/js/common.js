@@ -1,13 +1,18 @@
 $(function() {
-    // 账单类型
-    var $input0 = $("input:eq(0)");
-    var $warningDiv0 = $(".warningDiv:eq(0)");
-    // 账单金额
-    var $input1 = $("input:eq(1)");
-    var $warningDiv1 = $(".warningDiv:eq(1)");
-    // 提交表单
-    $("form").submit(function() {
-        alert();
+    // // 账单类型
+    // var $input0 = $("input:eq(0)");
+    // var $warningDiv0 = $(".warningDiv:eq(0)");
+    // // 账单金额
+    // var $input1 = $("input:eq(1)");
+    // var $warningDiv1 = $(".warningDiv:eq(1)");
+    
+    //账单表单提交
+    $("#bill_form").submit(function() {
+        return true;
+    });
+    //注册表单提交
+    $("#register_form").submit(function() {
+        alert("测试提交成功！")
         return true;
     });
 
@@ -91,7 +96,7 @@ $(function() {
         var data1 = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [{
-                label: "金额",
+                label: "收入金额",
                 fillColor: "rgba(220,220,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
                 pointColor: "rgba(220,220,220,1)",
@@ -123,7 +128,7 @@ $(function() {
         var data2 = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [{
-                label: "金额",
+                label: "支出金额",
                 fillColor: "rgba(220,220,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
                 pointColor: "rgba(220,220,220,1)",
