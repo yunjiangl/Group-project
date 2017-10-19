@@ -10,11 +10,8 @@ $(function() {
     $("#bill_form").submit(function() {
         return true;
     });
-    //注册表单提交
-    $("#register_form").submit(function() {
-        alert("测试提交成功！")
-        return true;
-    });
+
+    
 
     // 界面切换
     $("#formMenu").click(function() {
