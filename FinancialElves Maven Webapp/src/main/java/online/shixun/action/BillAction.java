@@ -71,7 +71,7 @@ public interface BillAction {
 	 * 使用response返回结果
 	 * </p>
 	 */
-	void queryBillCreateDate();
+	void queryBillCreateDate();//me
 
 	/**
 	 * 查询账单的金额
@@ -80,7 +80,7 @@ public interface BillAction {
 	 * 以账单创建时间分组查询账单金额，使用response返回结果
 	 * </p>
 	 */
-	void queryBillMoney();
+	void queryBillMoney();//me
 
 	/**
 	 * 查询账单的金额
@@ -89,6 +89,6 @@ public interface BillAction {
 	 * 以支出和收入分组查询账单金额，使用response返回结果
 	 * </p>
 	 */
-	void queryBillAllMoney();
+	void queryBillAllMoney();//me
 
 }
