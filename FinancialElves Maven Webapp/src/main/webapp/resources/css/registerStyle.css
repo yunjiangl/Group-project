@@ -1,5 +1,10 @@
 /*用户注册页面*/
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 #rigisterHeader {
     background: teal;
     width:100%;
