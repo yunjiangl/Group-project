@@ -16,7 +16,7 @@
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
-			<allowed-methods>doRegistered,usernameIsRepeat</allowed-methods>
+			<allowed-methods>doRegistered,usernameIsRepeat,doLogin,loginOut</allowed-methods>
 		</action>
 		<action name="bill_*" class="online.shixun.action.BillActionImpl"
 			method="{1}">

@@ -14,6 +14,11 @@ $(function() {
 		}
 		return false;
 	});
+	
+	//返回登录页面
+	$("#loginBack").click(function(){
+		$(window).attr("location","login.html");
+	});
 
 	// 用户名有效验证
 	$("#usernameInput").blur(function() {

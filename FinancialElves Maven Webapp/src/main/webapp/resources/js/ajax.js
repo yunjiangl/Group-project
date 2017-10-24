@@ -48,6 +48,10 @@ function formMenu(bill_id, bill_pay_type, bill_money) {
 		$("input[name='bill_id']").val(bill_id);
 		$("input[name='bill_pay_type']").val(bill_pay_type);
 		$("input[name='bill_money']").val(bill_money);
+
+		$("#button3").click(function(){
+			$(location).attr('href', 'list.html');
+		});
 		
 		// 提交表单
 		$("#form_bill").submit(function() {
@@ -56,9 +60,9 @@ function formMenu(bill_id, bill_pay_type, bill_money) {
 				addBill($("input[name='bill_pay_type']").val(), $("input[name='bill_money']").val());
 				return false;
 			} else {
-				
+
 				compileBill($("input[name='bill_id']").val(), $("input[name='bill_pay_type']").val(), $("input[name='bill_money']").val());
-				
+
 				return false;
 			}
 			return false;
@@ -221,10 +225,9 @@ function analyze() {
  *  @data 2017年10月16日17:19:23
  **/
 function addBill(bill_pay_type, bill_money) {
-	
 	ajaxRequest("POST", getRootPath_web() + "/bill_addAccountBillInfo", "bill.bill_pay_type=" + bill_pay_type + "&bill.bill_money=" + bill_money, function() {
 		alert("新增成功！");
-	$(location).attr('href', 'list.html');
+		$(location).attr('href', 'list.html');
 	});
 }
 
@@ -428,7 +431,55 @@ function countForPagesAndFirstData(url, bill_pay_type, incomeOrExpend) {
 
 
 /**
+ * 用户登陆 
+ * 
+ * @param username 用户名
+ * @param password 登录密码
+ * 
+ * @author 芸江
+ * @date  2017年10月23日20:13:42
+ **/
+function dologin(username, password) {
+	var data = "account.account_username=" + username + "&account.account_password=" + password;
+	ajaxRequest("POST", getRootPath_web() + "/user_doLogin", data, function(msg) {
+	    msg = parseInt(msg);
+		switch (msg) {
+		case 0:
+			alert("登录成功");
+			$(location).attr('href', 'list.html');
+			break;
+		case 1:
+			alert("账户已经被锁定");
+			break;
+		case 2:
+			alert("用户名/密码错误");
+			break;
+		}
+	});
+}
+
+/**
+ * 退出登录
+ * 
+ * @author 芸江
+ * @date 2017年10月23日21:28:13
+ * */
+function loginOut(){
+	ajaxRequest("POST", getRootPath_web() + "/user_loginOut", null, function(){
+		window.location.reload();
+	});
+	
+}
+
+/**
  * 用户注册
+ * 
+ * 	@param username 用户名
+ * 	@param password 登录密码
+ * 	@param email 联系邮箱
+ *  @param gender 性别
+ *  @param career 职业
+ *  @param hobbies 爱好
  * 
  *  @author 芸江
  *  @date 2017年10月19日15:21:11
@@ -443,6 +494,6 @@ function doRegister(username, password, email, gender, career, hobbies) {
 
 	ajaxRequest("POST", getRootPath_web() + "/user_doRegistered", data, function() {
 		alert("注册成功！");
-	//$(location).attr('href', 'login.html'); // 跳转到登录页面
+		$(location).attr('href', 'login.html'); // 跳转到登录页面
 	})
 }

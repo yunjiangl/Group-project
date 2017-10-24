@@ -15,12 +15,12 @@ public interface AccountAction {
 	 * 用户登录
 	 * 
 	 * <p>
-	 * 使用response对象向前端发送登陆结果，"login"字符串代表成功登录（此时将用户信息加入session）
+	 * 使用response对象向前端发送登陆结果，"0"代表成功登录（此时将用户信息加入session）
 	 * <p>
-	 * "cant'login"表示用户已经被锁定
+	 * "1"表示用户已经被锁定
 	 * </p>
 	 * <p>
-	 * "noLogin"表示用户输入的账户或密码错误
+	 * "2"表示用户输入的账户或密码错误
 	 * </p>
 	 * </p>
 	 */
@@ -30,11 +30,6 @@ public interface AccountAction {
 	 * 退出登录，将当前session中的用户信息清除
 	 */
 	void loginOut();
-
-	/**
-	 * 使用response对象将当前登录用户的用户名发送的前端
-	 */
-	void breakUsername();
 
 	/**
 	 * 检查用户名是否重复

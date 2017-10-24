@@ -1,12 +1,17 @@
 package online.shixun.action;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Controller;
+
+import com.opensymphony.xwork2.ActionContext;
 
 import online.shixun.model.Account;
 import online.shixun.service.AccountService;
@@ -29,7 +34,24 @@ public class AccountActionImpl implements AccountAction {
 
 	@Override
 	public void doLogin() {
+		String result = accountService.accountLogin(account.getAccount_username(), account.getAccount_password());
+		try {
+			if ("0".equals(result)) {
+				Map<String, Object> application = ActionContext.getContext().getApplication();
+				Map<String, Object> session = ActionContext.getContext().getSession();
+				Account accountLogin = accountService.queryAccountInfo(account.getAccount_username());
+				session.put("account", accountLogin);
+				if (application.get(account.getAccount_username()) != null) {
+					Map<String, Object> s = (Map<String, Object>) application.get(account.getAccount_username());
+					s.remove("account");
+				}
+				application.put(account.getAccount_username(), session);
 
+			}
+			ServletActionContext.getResponse().getWriter().write(result);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -77,14 +99,9 @@ public class AccountActionImpl implements AccountAction {
 
 	@Override
 	public void loginOut() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void breakUsername() {
-		// TODO Auto-generated method stub
-
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		session.removeAttribute("account");
 	}
 
 }

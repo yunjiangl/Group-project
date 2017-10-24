@@ -30,7 +30,7 @@ public interface AccountService {
 	 *            用户名
 	 * @param password
 	 *            登陆密码
-	 * @return 返回"login"登录成功，返回"can'tLogin"密码错误5次，不能进行灯，返回"noLogin"没有登录成功
+	 * @return 返回"0"登录成功，返回"1"密码错误5次，不能进行灯，返回"2"没有登录成功
 	 */
 	String accountLogin(String username, String password);
 

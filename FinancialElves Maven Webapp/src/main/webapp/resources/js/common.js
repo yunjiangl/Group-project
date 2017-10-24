@@ -6,7 +6,6 @@ $(function() {
 		
 	});
 
-
 	// 查询
 	$("#queryMenu").click(function() {
 		$(location).attr('href', 'list.html');
@@ -39,7 +38,9 @@ $(function() {
 
 	// 模糊查询
 	$("#searchButton").click(function() {
-		if ($("#searchInput").val() == "") {
+		
+		var type = $.trim($("#searchInput").val())
+		if (type == "") {
 			alert("请输入查询关键字！")
 		} else {
 			var incomeOrExpend;
@@ -48,7 +49,7 @@ $(function() {
 			} else {
 				incomeOrExpend = 1;
 			}
-			countForPagesAndFirstData("/bill_fuzzyQueryBillPages", $("#searchInput").val(), incomeOrExpend);
+			countForPagesAndFirstData("/bill_fuzzyQueryBillPages", type, incomeOrExpend);
 		}
 
 	});
@@ -102,6 +103,11 @@ $(function() {
 	 **/
 	$("#previous").click(function() {
 		$(".pages").eq(page - 2).trigger("click");
+	});
+
+	
+	$("#logoutDiv").click(function(){
+		loginOut();
 	});
 
 });

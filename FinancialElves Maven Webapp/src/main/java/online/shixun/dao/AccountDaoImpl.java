@@ -30,8 +30,8 @@ public class AccountDaoImpl implements AccountDao {
 
 	@Override
 	public void updateAccountInfo(Account account) {
-		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		session.update(account);
 	}
 
 	/**

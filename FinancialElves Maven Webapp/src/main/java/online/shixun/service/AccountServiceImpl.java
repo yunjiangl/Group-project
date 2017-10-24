@@ -16,13 +16,40 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public String accountLogin(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		Account account = accountDao.queryAccountInfo(username);
+		String result = null;
+		// 账户存在
+		if (account != null) {
+			// 错误次数
+			int account_loginCount = account.getAccount_loginCount();
+			// 错误次数小于5
+			if (account_loginCount <= 5) {
+				// 密码正确,
+				if (password.equals(account.getAccount_password())) {
+					// 错误次数归0，传入数据库(登陆成功)
+					account.setAccount_loginCount(0);
+					accountDao.updateAccountInfo(account);
+					result = "0";
+					// 密码错误
+				} else {
+					// 增加错误次数，传入数据库(密码或账户错误)
+					account.setAccount_loginCount(account_loginCount + 1);
+					accountDao.updateAccountInfo(account);
+					result = "2";
+				}
+				// 错误次数大于5，账号锁定
+			} else {
+				result = "1";
+			}
+			// 账户不存在
+		} else {
+
+		}
+		return result;
 	}
 
 	@Override
 	public void updateAccountInfo(Account account) {
-		// TODO Auto-generated method stub
 
 	}
 

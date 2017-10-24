@@ -17,7 +17,7 @@ import online.shixun.service.BillService;
 public class BillActionImpl implements BillAction {
 
 	private Bill bill;// 账单类
-	private Account account;// 用户类
+//	private Account account;// 用户类
 	private BillService billService;// 服务类
 	private int page;// 接收页码
 	private int pages;// 总页码数
@@ -25,14 +25,13 @@ public class BillActionImpl implements BillAction {
 
 	@Override
 	public void addAccountBillInfo() {
-		billService.addBillInfo(bill, 1L);
-
+		Account account = (Account)ServletActionContext.getContext().getSession().get("account");
+		billService.addBillInfo(bill, account.getAccount_id());
 	}
 
 	@Override
 	public void deleteAccountBillInfo() {
 		billService.deleteBillInfo(bill.getBill_id());
-
 	}
 
 	@Override
@@ -51,7 +50,8 @@ public class BillActionImpl implements BillAction {
 
 	@Override
 	public void queryAccountBillPages() throws IOException {
-		pages = billService.queryBillPages(1L, incomeOrExpend);
+		Account account = (Account)ServletActionContext.getContext().getSession().get("account");
+		pages = billService.queryBillPages(account.getAccount_id(), incomeOrExpend);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html charset=utf-8");
@@ -60,7 +60,8 @@ public class BillActionImpl implements BillAction {
 
 	@Override
 	public void queryAccountBillInfo() throws IOException {
-		String s = billService.queryBillInfo(1L, page, incomeOrExpend);
+		Account account = (Account)ServletActionContext.getContext().getSession().get("account");
+		String s = billService.queryBillInfo(account.getAccount_id(), page, incomeOrExpend);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html charset=utf-8");
@@ -70,17 +71,19 @@ public class BillActionImpl implements BillAction {
 
 	@Override
 	public void fuzzyQueryBillPages() throws IOException {
+		Account account = (Account)ServletActionContext.getContext().getSession().get("account");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html charset=utf-8");
-		pages = billService.fuzzyQueryBillPages(1L, bill.getBill_pay_type(), incomeOrExpend);
+		pages = billService.fuzzyQueryBillPages(account.getAccount_id(), bill.getBill_pay_type(), incomeOrExpend);
 		ServletActionContext.getResponse().getWriter().write(pages);
 
 	}
 
 	@Override
 	public void fuzzyQueryBillInfo() throws IOException {
-		String s = billService.fuzzyQueryBillInfo(1L, bill.getBill_pay_type(), page, incomeOrExpend);
+		Account account = (Account)ServletActionContext.getContext().getSession().get("account");
+		String s = billService.fuzzyQueryBillInfo(account.getAccount_id(), bill.getBill_pay_type(), page, incomeOrExpend);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html charset=utf-8");
@@ -90,12 +93,13 @@ public class BillActionImpl implements BillAction {
 
 	@Override
 	public void queryBillCreateDate() {
+		Account account = (Account)ServletActionContext.getContext().getSession().get("account");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html charset=utf-8");
 		try {
 			PrintWriter pw = response.getWriter();
-			pw.write(billService.queryBillCreateDate(1L, incomeOrExpend));
+			pw.write(billService.queryBillCreateDate(account.getAccount_id(), incomeOrExpend));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -104,12 +108,13 @@ public class BillActionImpl implements BillAction {
 
 	@Override
 	public void queryBillMoney() {
+		Account account = (Account)ServletActionContext.getContext().getSession().get("account");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html charset=utf-8");
 		try {
 			PrintWriter pw = response.getWriter();
-			pw.write(billService.queryBillMoney(1L, incomeOrExpend));
+			pw.write(billService.queryBillMoney(account.getAccount_id(), incomeOrExpend));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -118,12 +123,13 @@ public class BillActionImpl implements BillAction {
 
 	@Override
 	public void queryBillAllMoney() {
+		Account account = (Account)ServletActionContext.getContext().getSession().get("account");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html charset=utf-8");
 		try {
 			PrintWriter pw = response.getWriter();
-			pw.write(billService.queryBillAllMoney(1L));
+			pw.write(billService.queryBillAllMoney(account.getAccount_id()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -138,13 +144,13 @@ public class BillActionImpl implements BillAction {
 		this.bill = bill;
 	}
 
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
+//	public Account getAccount() {
+//		return account;
+//	}
+//
+//	public void setAccount(Account account) {
+//		this.account = account;
+//	}
 
 	public BillService getbillService() {
 		return billService;

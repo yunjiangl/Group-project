@@ -5,8 +5,11 @@ $(function() {
         if ($("#usernameInput").val().length < 6 || $("#passwordInput").val().length < 6) {
             alert("请完善登录信息！");
             return false;
+        }else{
+        	dologin($("#usernameInput").val(),$("#passwordInput").val());
+        	return false;
         }
-        return true;
+        return false;
     });
 
     // 用户名有效验证
